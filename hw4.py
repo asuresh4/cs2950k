@@ -57,7 +57,7 @@ for e in range(len(XTrain) // BATCH - 1):
 
 # Read test text
 with open('test.txt') as f:
-    testText = f.readlines()
+    testText = f.read()
 
 # Obtain words in test text
 testText = testText.replace('\n', ' ').split(' ')
@@ -65,4 +65,4 @@ testText = testText.replace('\n', ' ').split(' ')
 testWords = [x[0] for x in vocabProcessor.fit_transform(testText)]
 XTest, yTest = testWords[:-1], testWords[1:]
 
-print "Perplexity ",math.e ** loss.eval(feed_dict={X: XTest, y: yTest})
+print "Perplexity ",math.e**loss.eval(feed_dict={X: XTest, y: yTest})
